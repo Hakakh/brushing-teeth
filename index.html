@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Lesson: A Boy Brushing His Teeth</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+
+        .vocab, .sentence {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: none; /* Bỏ gạch chân mặc định */
+            font-weight: bold;
+            transition: color 0.2s ease-in-out;
+            padding: 5px 0; /* Tăng diện tích click */
+        }
+
+        .vocab:hover, .sentence:hover {
+            color: #0056b3;
+            text-decoration: underline; /* Hiển thị gạch chân khi hover */
+        }
+
+        .play-audio {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1.3em;
+            color: #28a745;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .play-audio:hover {
+            color: #218838;
+        }
+
+        #imageDisplay {
+            margin-top: 40px;
+            text-align: center;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: none; /* Ẩn ban đầu */
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #lessonImage {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #imageCaption {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Lesson: A Boy Brushing His Teeth</h1>
+        
+        <h2>📖 Story</h2>
+        <p>A boy is brushing his teeth in the morning.</p>
+
+        <h2>🔤 Main Vocabulary</h2>
+        <ul>
+            <li class="vocab-item">
+                <span class="vocab" data-item="brush teeth">brush teeth (đánh răng) /brʌʃ tiːθ/</span>
+                <span class="play-audio" data-item="brush teeth">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="toothbrush">toothbrush (bàn chải đánh răng) /ˈtuːθ.brʌʃ/</span>
+                <span class="play-audio" data-item="toothbrush">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="toothpaste">toothpaste (kem đánh răng) /ˈtuːθ.peɪst/</span>
+                <span class="play-audio" data-item="toothpaste">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="bathroom">bathroom (phòng tắm) /ˈbɑːθ.ruːm/</span>
+                <span class="play-audio" data-item="bathroom">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="sink">sink (bồn rửa tay) /sɪŋk/</span>
+                <span class="play-audio" data-item="sink">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="mirror">mirror (gương) /ˈmɪr.ər/</span>
+                <span class="play-audio" data-item="mirror">🔊</span>
+            </li>
+            <li class="vocab-item">
+                <span class="vocab" data-item="morning">morning (buổi sáng) /ˈmɔː.nɪŋ/</span>
+                <span class="play-audio" data-item="morning">🔊</span>
+            </li>
+        </ul>
+
+        <h2>🧩 Descriptive Sentences</h2>
+        <ul>
+            <li class="sentence-item">
+                <span class="sentence" data-item="This is a boy.">This is a boy.</span>
+                <span class="play-audio" data-item="This is a boy.">🔊</span>
+            </li>
+            <li class="sentence-item">
+                <span class="sentence" data-item="He is brushing his teeth.">He is brushing his teeth.</span>
+                <span class="play-audio" data-item="He is brushing his teeth.">🔊</span>
+            </li>
+            <li class="sentence-item">
+                <span class="sentence" data-item="He is in the bathroom.">He is in the bathroom.</span>
+                <span class="play-audio" data-item="He is in the bathroom.">🔊</span>
+            </li>
+            <li class="sentence-item">
+                <span class="sentence" data-item="There is a mirror and a sink.">There is a mirror and a sink.</span>
+                <span class="play-audio" data-item="There is a mirror and a sink.">🔊</span>
+            </li>
+            <li class="sentence-item">
+                <span class="sentence" data-item="It is morning.">It is morning.</span>
+                <span class="play-audio" data-item="It is morning.">🔊</span>
+            </li>
+        </ul>
+
+        <h2>❓ Suggested Questions for Students</h2>
+        <ul>
+            <li>What is the boy doing?</li>
+            <li>Where is he?</li>
+            <li>What can you see in the bathroom?</li>
+            <li>Do you brush your teeth in the morning?</li>
+            <li>How many times do you brush your teeth every day?</li>
+        </ul>
+
+        <h2>✏️ Sample Description</h2>
+        <p>This is a boy. He is in the bathroom. He is brushing his teeth. There is a mirror and a sink. It is morning.</p>
+
+        <div id="imageDisplay">
+            <img id="lessonImage" src="" alt="Lesson Image">
+            <p id="imageCaption"></p>
+        </div>
+    </div>
+
+    <script>
+        // Bản đồ chứa đường dẫn hình ảnh cho mỗi từ vựng/câu
+        // Vui lòng thay thế 'your_image_path/' bằng đường dẫn thực tế của bạn
+        const imageMap = {
+            'brush teeth': 'https://via.placeholder.com/400x250/FFDDC1/000000?text=Brush+Teeth',
+            'toothbrush': 'https://via.placeholder.com/400x250/C1FFDD/000000?text=Toothbrush',
+            'toothpaste': 'https://via.placeholder.com/400x250/DDC1FF/000000?text=Toothpaste',
+            'bathroom': 'https://via.placeholder.com/400x250/C1DDFF/000000?text=Bathroom',
+            'sink': 'https://via.placeholder.com/400x250/FFFDC1/000000?text=Sink',
+            'mirror': 'https://via.placeholder.com/400x250/DDFFC1/000000?text=Mirror',
+            'morning': 'https://via.placeholder.com/400x250/FFC1DD/000000?text=Morning',
+            'This is a boy.': 'https://via.placeholder.com/400x250/C1FFFF/000000?text=A+Boy',
+            'He is brushing his teeth.': 'https://via.placeholder.com/400x250/E0C1FF/000000?text=Boy+Brushing+Teeth',
+            'He is in the bathroom.': 'https://via.placeholder.com/400x250/FFC1FF/000000?text=Boy+in+Bathroom',
+            'There is a mirror and a sink.': 'https://via.placeholder.com/400x250/C1FFC1/000000?text=Mirror+and+Sink',
+            'It is morning.': 'https://via.placeholder.com/400x250/FFECB3/000000?text=It+is+Morning'
+        };
+
+        // Bản đồ chứa đường dẫn file âm thanh cho mỗi từ vựng/câu
+        // Vui lòng thay thế 'your_audio_path/' bằng đường dẫn thực tế của bạn
+        // Các đường dẫn dưới đây là ví dụ, bạn cần tự tạo hoặc tìm các file âm thanh tương ứng
+        const audioMap = {
+            'brush teeth': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Thay thế bằng file âm thanh thực tế
+            'toothbrush': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+            'toothpaste': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+            'bathroom': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+            'sink': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+            'mirror': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+            'morning': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+            'This is a boy.': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+            'He is brushing his teeth.': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+            'He is in the bathroom.': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+            'There is a mirror and a sink.': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+            'It is morning.': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3'
+        };
+
+        // Hàm hiển thị hình ảnh khi click vào từ/câu
+        function showImage(itemName) {
+            const imageDisplay = document.getElementById('imageDisplay');
+            const lessonImage = document.getElementById('lessonImage');
+            const imageCaption = document.getElementById('imageCaption');
+
+            const imageUrl = imageMap[itemName];
+            if (imageUrl) {
+                lessonImage.src = imageUrl;
+                lessonImage.alt = itemName; // Gán alt text cho hình ảnh
+                imageCaption.textContent = itemName; // Hiển thị từ/câu làm caption
+                imageDisplay.style.display = 'block'; // Hiển thị khung hình ảnh
+            } else {
+                imageDisplay.style.display = 'none'; // Ẩn nếu không tìm thấy hình ảnh
+                console.warn(`No image found for: ${itemName}`);
+            }
+        }
+
+        // Hàm phát âm thanh khi click vào biểu tượng loa
+        function playAudio(itemName, event) {
+            event.stopPropagation(); // Ngăn chặn sự kiện click lan ra phần tử cha (tránh gọi showImage khi click loa)
+            const audioUrl = audioMap[itemName];
+            if (audioUrl) {
+                const audio = new Audio(audioUrl);
+                audio.play().catch(e => console.error("Error playing audio:", e)); // Xử lý lỗi nếu không thể phát
+            } else {
+                console.warn(`No audio found for: ${itemName}`);
+            }
+        }
+
+        // Gắn sự kiện click cho các từ vựng và câu sau khi DOM đã tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            // Xử lý sự kiện click cho các từ vựng (vocab)
+            document.querySelectorAll('.vocab').forEach(item => {
+                item.addEventListener('click', () => {
+                    const itemName = item.dataset.item; // Lấy giá trị từ data-item
+                    showImage(itemName);
+                });
+            });
+
+            // Xử lý sự kiện click cho các câu mô tả (sentence)
+            document.querySelectorAll('.sentence').forEach(item => {
+                item.addEventListener('click', () => {
+                    const itemName = item.dataset.item;
+                    showImage(itemName);
+                });
+            });
+
+            // Xử lý sự kiện click cho biểu tượng loa
+            document.querySelectorAll('.play-audio').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const itemName = button.dataset.item;
+                    playAudio(itemName, event);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
